@@ -7,6 +7,7 @@ const gallery = document.querySelector(".gallery");
 
 galleryItems.forEach((galleryItem) => {
   const a = document.createElement("a");
+  const li = document.createElement("li");
   a.classList.add("gallery__link");
   a.href = `${galleryItem.original}`;
   const image = document.createElement("img");
@@ -14,8 +15,10 @@ galleryItems.forEach((galleryItem) => {
   image.alt = `${galleryItem.description}`;
   image.setAttribute("data-source", `${galleryItem.original}`);
   image.classList.add("gallery__image");
-  gallery.append(a);
+  gallery.append(li);
+  li.append(a);
   a.append(image);
+
   a.addEventListener("click", (event) => {
     event.preventDefault();
 
@@ -31,5 +34,5 @@ galleryItems.forEach((galleryItem) => {
       }
     });
   });
-  // console.log(galleryItem);
 });
+console.log(gallery);

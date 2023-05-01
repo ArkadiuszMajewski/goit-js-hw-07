@@ -16,6 +16,7 @@ galleryItems.forEach((galleryItem) => {
   img.classList.add("gallery__image");
   img.src = `${galleryItem.preview}`;
   img.alt = `${galleryItem.description}`;
+  img.title = `${galleryItem.description}`;
   gallery.append(li);
   li.append(a);
   a.append(img);
@@ -25,4 +26,7 @@ galleryItems.forEach((galleryItem) => {
 });
 (function () {
   var $gallery = new SimpleLightbox(".gallery a", {});
+
+  $gallery.options.captionDelay = 500;
+  console.log($gallery.options);
 })();
